@@ -34,6 +34,14 @@
 		<DefineConstants Condition="$(TargetFramework.Contains('-windows'))">HANDLE_WEBVIEW2_PERMISSIONS_SILENTLY</DefineConstants>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>key.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyAlias>AonDigiconKey</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>@admin123</AndroidSigningKeyPass>
+		<AndroidSigningStorePass>@admin123</AndroidSigningStorePass>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
